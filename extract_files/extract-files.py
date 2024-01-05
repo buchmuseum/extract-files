@@ -23,9 +23,9 @@ def copy_jpg_png_to_destination(source_dir, destination_dir):
 
 # Replace 'source_directory_path' with the directory containing the images
 # Um B einzubinden: sudo mount -t drvfs B: /mnt/b/
-source_directory_path = '/root/wz/pdf-test/test'
+source_directory_path = '/Verzeichnis/mit/WZ-Scans'
 
 # Replace 'destination_directory_path' with the directory where you want to copy the images
-destination_directory_path = '/root/wz/katalog-import'
+destination_directory_path = '/Verzeichnis/fuer/Katalog-Import'
 
 copy_jpg_png_to_destination(source_directory_path, destination_directory_path)

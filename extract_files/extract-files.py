@@ -1,4 +1,5 @@
 import os
+import sys
 import shutil
 import logging
 
@@ -21,11 +22,12 @@ def copy_jpg_png_to_destination(source_dir, destination_dir):
                     logging.error(error_msg)
                     print(error_msg)
 
-# Replace 'source_directory_path' with the directory containing the images
-# Um B einzubinden: sudo mount -t drvfs B: /mnt/b/
-source_directory_path = '/Verzeichnis/mit/WZ-Scans'
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: python script_name.py source_directory_path destination_directory_path")
+        sys.exit(1)
 
-# Replace 'destination_directory_path' with the directory where you want to copy the images
-destination_directory_path = '/Verzeichnis/fuer/Katalog-Import'
+    source_directory_path = sys.argv[1]
+    destination_directory_path = sys.argv[2]
 
-copy_jpg_png_to_destination(source_directory_path, destination_directory_path)
+    copy_jpg_png_to_destination(source_directory_path, destination_directory_path)

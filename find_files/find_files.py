@@ -1,6 +1,9 @@
-# Read an excel file and save column B to a list:
+# Read an excel file with mssing files and find the files in the given path
+
+
 import pandas as pd
 import os
+import sys
 
 def import_file_names(excel_file):
     # read excel file and save the second column to a list
@@ -27,9 +30,15 @@ def find_files(file_names, path):
                     continue
 
 # Example usage
-excel_file = "~/wz/extract-files/find_files/fehlende_Digitalisate_liste.xlsx"
-path = "/mnt/b/Projekte/_Wasserzeichen/WZIS_Bilder/"
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: python script_name.py excel_file path")
+        sys.exit(1)
 
-file_names = import_file_names(excel_file)
+    excel_file = sys.argv[1]
+    path = sys.argv[2] 
 
-find_files(file_names, path)
+    # Read the excel file and save the second column to a list
+    file_names = import_file_names(excel_file)
+    # Iterate over the list of file names and check if the file exists in the given path and subdirectories
+    find_files(file_names, path)
